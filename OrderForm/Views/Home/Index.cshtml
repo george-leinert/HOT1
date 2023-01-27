@@ -1,0 +1,38 @@
+﻿@model OrderFormModel
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Home Page</title>
+	<link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="m-5">
+		<h1>Crazy Crank's T-Shirt Factory</h1>
+		<p>Order Form</p>
+		<form asp-action="Index" method="post" class="form-group">
+			<label asp-for="OrderQuantity" class="form-label">Quantity</label>
+			<br/>
+			<input asp-for="OrderQuantity" class="form-control" />
+			<br/>
+			<label asp-for="DiscountCode" class="form-label">Discount Code</label>
+			<br/>
+			<input asp-for="DiscountCode" class="form-control" />
+			<br/>
+			<p>@ViewBag.DiscountMessage</p>
+			<button type="submit" class="btn btn-primary">Order</button>
+			<br/>
+			<div style="border-top-style: solid; border-bottom-style: solid; border-inline: solid" class="mt-5">
+				<p>@ViewBag.OrderQuantity T-Shirts at @ViewBag.PricePerShirt.ToString("C2") each</p>
+				<p>	--------------------------------------------------------------</p>
+				<p>Subtotal @ViewBag.Subtotal.ToString("C2")</p>
+				<p>Tax @ViewBag.Tax.ToString("C2")</p>
+				<p>Total @ViewBag.Total.ToString("C2")</p>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

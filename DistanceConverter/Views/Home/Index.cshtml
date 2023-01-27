@@ -1,0 +1,27 @@
+﻿@model DistanceConverterModel
+@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Home Page</title>
+	<link rel="stylesheet" href="~/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="m-5">
+	<h1>Distance Converter</h1>
+	<form asp-action="Index" method="post">
+		<label asp-for="DistanceInInches" class="form-label">Distance in Inches</label>
+		<br/>
+		<input asp-for="DistanceInInches" class="form-control" />
+		<br/>
+		<button type="submit" class="btn btn-primary">Convert</button>
+		<h3>@ViewBag.DistanceInInches.ToString() inches is @ViewBag.DistanceInCentimeters.ToString() centimeters</h3>
+		<span asp-validation-for="DistanceInInches" class="text-danger"></span>
+
+	</form>
+	</div>
+</body>
+</html>
